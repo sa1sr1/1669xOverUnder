@@ -1,0 +1,22 @@
+#pragma once
+
+#include "EZ-Template/drive/drive.hpp"
+#include "lemlib/chassis/chassis.hpp"
+
+extern Drive chassis;
+extern lemlib::Chassis lemChassis;
+
+void far_side();
+void near_side();
+void prog_skills();
+void skills_macro();
+void keep_turn(int turn);
+void drive_and_turn();
+void wait_until_change_speed();
+void swing_example();
+void combining_movements();
+void interfered_example();
+
+void default_constants();
+void one_mogo_constants();
+void two_mogo_constants();
