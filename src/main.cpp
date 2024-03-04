@@ -1,7 +1,4 @@
 #include "main.h"
-#include "lemlib/api.hpp"
-#include "lemlib/chassis/chassis.hpp"
-#include "pros/motors.hpp"
 #include "autons.hpp"
 #include "subSystems.hpp"
 
@@ -40,58 +37,7 @@ ez::Drive chassis (
 
 );
 
-std::vector<pros::Motor> leftMotor = {pros::Motor(leftMotorPorts[0]),pros::Motor(leftMotorPorts[1]),pros::Motor(leftMotorPorts[2])};
-std::vector<pros::Motor> rightMotor = {pros::Motor(rightMotorPorts[0]),pros::Motor(rightMotorPorts[1]),pros::Motor(rightMotorPorts[2])};
 
-pros::MotorGroup leftMotors(leftMotor);
-pros::MotorGroup rightMotors(rightMotor);
-
-pros::Imu imu(imuPort);
-
-lemlib::Drivetrain drivetrain {
-    &leftMotors, // left drivetrain motors
-    &rightMotors, // right drivetrain motors
-    11.75, // track width
-    2.75, // wheel diameter
-    450,// wheel rpm
-    8 // chase power
-};
-
-lemlib::OdomSensors sensors{
-    nullptr,
-    nullptr,
-    nullptr,
-    nullptr,
-    &imu
-};
-
-// forward/backward PID
-lemlib::ControllerSettings linearController {
-    8, // kP
-    0, // integral
-    30, // kD
-    3,
-    1, // smallErrorRange
-    100, // smallErrorTimeout
-    3, // largeErrorRange
-    500, // largeErrorTimeout
-    5 // slew rate
-};
- 
-// turning PID
-lemlib::ControllerSettings angularController {
-    4, // kP
-    0, // Integral
-    40, // kD
-    3,
-    1, // smallErrorRange
-    100, // smallErrorTimeout
-    3, // largeErrorRange
-    500, // largeErrorTimeout
-    0 // slew rate
-};
-
-lemlib::Chassis lemChassis(drivetrain, linearController, angularController, sensors);
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -131,20 +77,6 @@ void initialize() {
   // Initialize chassis and auton selector
   chassis.initialize();
   ez::as::initialize();
-  lemChassis.calibrate();
-    pros::Task screenTask([&]() {
-        lemlib::Pose pose(0, 0, 0);
-        while (true) {
-            // print robot location to the brain screen
-            pros::lcd::print(5, "X: %f", lemChassis.getPose().x); // x
-            pros::lcd::print(6, "Y: %f", lemChassis.getPose().y); // y
-            pros::lcd::print(7, "Theta: %f", lemChassis.getPose().theta); // heading
-            // log position telemetry
-            lemlib::telemetrySink()->info("Chassis pose: {}", lemChassis.getPose());
-            // delay to save resources
-            pros::delay(50);
-        }
-    });
 
   master.rumble(".");
 }

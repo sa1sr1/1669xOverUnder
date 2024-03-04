@@ -119,22 +119,6 @@ void skills_macro(){
 void prog_skills(){
   // fill out the movements for matchloading after this (could change depending on how setup)
   
-  // chassis.pid_swing_set(ez::LEFT_SWING, -10, 90);
-  // chassis.pid_wait();
-
-  /*
-  chassis.pid_swing_set(ez::RIGHT_SWING, 30, 90);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-2_in, 110);
-  chassis.pid_wait();
-  
-  chassis.pid_drive_toggle(false);
-
-   slapper.move(127);
-   pros::delay(15000);
-   slapper.move(0);
-  */
   intake.move(127);
   chassis.pid_swing_set(ez::LEFT_SWING, -30, 90);
   chassis.pid_wait();
@@ -142,122 +126,137 @@ void prog_skills(){
   chassis.pid_swing_set(ez::RIGHT_SWING, 28, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-1.5_in, 90);
+  chassis.pid_drive_set(-1_in, 90);
+  chassis.pid_wait();
 
   intake.move(0);
 
-  chassis.pid_drive_toggle(false);
-
   pros::delay(2000);
-
-  lemChassis.setPose({0.4,-14,30}); // start at around 32 deg (have to measure)
-  lemChassis.moveToPose(6, 0, 45, 4000);
-
-  chassis.pid_drive_toggle(true);
-
-  chassis.pid_turn_set(-135, 90);
-  chassis.pid_wait();
-  // lemChassis.turnTo(-24,0, 5000);
-  chassis.pid_drive_toggle(false);
-
-  lemChassis.moveToPose(35, 13.5, -90, 4000, {.forwards = false});
   
+  chassis.drive_imu_reset(28);
+
+  chassis.pid_drive_set(1_in, 90);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(208, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-33_in, 110);
+  chassis.pid_wait_until(-22_in);
   wings.set(true);
-  // chassis.pid_drive_set(-47_in, 110);
-  // chassis.pid_wait();
+  chassis.pid_wait();
 
+  chassis.pid_turn_set(270, 90);
+  chassis.pid_wait();
 
-  lemChassis.moveToPose(83.5, 13.5, -90, 5000, {.forwards = false});
+  chassis.pid_drive_set(-68_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(8_in, 90);
+  chassis.pid_wait_until(4_in);
   wings.set(false);
-
-  lemChassis.moveToPose(74, 13.5, -90, 3000);
-
-  chassis.pid_drive_toggle(true);
-
-  chassis.pid_turn_set(0, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-3_in, DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_swing_set(ez::LEFT_SWING, -90, 90);
+  chassis.pid_turn_set(180, 90);
   chassis.pid_wait();
 
   chassis.pid_drive_set(-18_in, 110);
   chassis.pid_wait();
+
+  chassis.pid_swing_set(ez::LEFT_SWING, 270, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-6_in, 90);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(180, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-66_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(135, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-10_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(90, 90);
+  chassis.pid_wait();
   
-  chassis.pid_turn_set(-180, 90);
+  chassis.pid_drive_set(-10_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(6_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-6_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(0, 90);
+  chassis.pid_wait();
+
+  wings.set(true);
+
+  chassis.pid_swing_set(ez::RIGHT_SWING, 160, 80);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(6_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-6_in, 110);
+  chassis.pid_wait();
+
+  wings.set(false);
+
+  chassis.pid_drive_set(50_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(90, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-48_in, 110);
+  chassis.pid_wait();
+
+  wings.set(true);
+
+  chassis.pid_swing_set(ez::RIGHT_SWING, 180, 80);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(6_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-6_in, 110);
+  chassis.pid_wait();
+
+  wings.set(false);
+
+  chassis.pid_drive_set(36_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(135, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-55_in, 110);
+  chassis.pid_wait();
+
+  wings.set(true);
+
+  chassis.pid_swing_set(ez::RIGHT_SWING, 270, 80);
+  chassis.pid_wait();
+
+  wings.set(false);
+
+  chassis.pid_drive_set(-12_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(6_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-6_in, 110);
   chassis.pid_wait();
 
 
-
-
-
-  // lemChassis.moveToPose(114, -5.1, 180, 7000, {.forwards = false});
-
-  chassis.pid_drive_set(-60_in, 110);
-  chassis.pid_wait();
-
-  // chassis.pid_swing_set(ez::RIGHT_SWING, 225, 90);
-  // chassis.pid_wait();
-
-  // wings.set(false);
-
-
-
-
-  // slapper.move(127); // or whatever matcloading speed
-  // pros::delay(30000)
-  // slapper.move(0);
-
-  // movements after this are starting off on middle of left edge of tile on the left side of blue horiz elevation bar
-  // all turns are assuming that the bot is initialized with intake pointing to elevation bar
-  //    skills_macro();
-
-  // chassis.pid_drive_set(72, DRIVE_SPEED);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_turn_set(-90, TURN_SPEED); // turn robot around so triballs can be pushed with back
-  // chassis.pid_wait();
-  //
-  // chassis.pid_drive_set(-20, DRIVE_SPEED);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_turn_set(0, TURN_SPEED);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_drive_set(-15, DRIVE_SPEED);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_turn_set(-90, TURN_SPEED);
-  // chassis.pid_wait();
-  //
-  // wings.set(true);
-  //
-  // chassis.pid_drive_set(-18, DRIVE_SPEED);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_swing_set(ez::LEFT_SWING, -180, 90);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_drive_set(-14, 127);
-  // chassis.pid_wait();
-  //
-  //
-  // chassis.pid_drive_set(20, DRIVE_SPEED);
-  // chassis.pid_wait();
-  // 
-  // chassis.pid_swing_set(ez::LEFT_SWING, -90, 90);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_drive_set(-14, DRIVE_SPEED);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_swing_set(ez::LEFT_SWING, -180, 90);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_drive_set(-20, 12);
-  // chassis.pid_wait();
 }
 ///
 // Drive Example
