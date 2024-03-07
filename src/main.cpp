@@ -65,10 +65,10 @@ void initialize() {
   ez::as::auton_selector.autons_add({
     Auton("Prog Skills", prog_skills),
     Auton("Drive forward and score triball", drive_and_turn),
+    Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
     Auton("Near side auton\n\nscore 2 triballs, touch elevation", near_side),
     Auton("Far side auton\n\nscore alliance matchload no elevation touch", far_side),
     Auton("Drive and Turn\n\nSlow down during drive.", wait_until_change_speed),
-    Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
     Auton("Combine all 3 movements", combining_movements),
     Auton("Interference\n\nAfter driving forward, robot performs differently if interfered or not.", interfered_example),
 
@@ -154,33 +154,24 @@ void opcontrol() {
     
     // // PID Tuner
     // // After you find values that you're happy with, you'll have to set them in auton.cpp
-    // if (!pros::competition::is_connected()) { 
+    if (!pros::competition::is_connected()) { 
     //   // Enable / Disable PID Tuner
     //   //  When enabled: 
     //   //  * use A and Y to increment / decrement the constants
     //   //  * use the arrow keys to navigate the constants
-    //     if (master.get_digital_new_press(DIGITAL_UP)){
-    //       angularController.kP += 0.1;
-    //     }
-    //     if (master.get_digital_new_press(DIGITAL_DOWN)){
-    //       angularController.kP -= 0.1;
-    //     }
-    //     if (master.get_digital_new_press(DIGITAL_RIGHT)){
-    //       angularController.kD += 0.1;
-    //     }
-    //     if (master.get_digital_new_press(DIGITAL_LEFT)){
-    //       angularController.kD -= 0.1;
-    //     }
+         if (master.get_digital_new_press(DIGITAL_X)){
+           chassis.pid_tuner_toggle();
+         }
     //   // Trigger the selected autonomous routine
-    //   if (master.get_digital_new_press(DIGITAL_B)) 
-    //      autonomous();
+       if (master.get_digital_new_press(DIGITAL_B)) 
+          autonomous();
     //
-    //   // chassis.pid_tuner_iterate(); // Allow PID Tuner to iterate
+       chassis.pid_tuner_iterate(); // Allow PID Tuner to iterate
     //   
     //   pros::lcd::set_text(0, to_string(angularController.kP));
     //   pros::lcd::set_text(1, to_string(angularController.kD));
     //
-    // } 
+    } 
 
     // chassis.opcontrol_tank(); // Tank control
     chassis.opcontrol_arcade_standard(ez::SPLIT); // Standard split arcade

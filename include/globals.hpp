@@ -2,5 +2,5 @@
 #include "main.h"
 
 extern pros::Motor intake;
-extern ez::Piston wings1;
+extern ez::Piston wings;
 extern pros::Motor slapper;

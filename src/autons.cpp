@@ -31,7 +31,7 @@ void default_constants() {
   chassis.slew_drive_constants_set(7_in, 80);
 
   chassis.pid_heading_constants_set(3, 0, 20);
-  chassis.pid_drive_constants_set(10, 0, 100);
+  chassis.pid_drive_constants_set(12.5, 0, 100);
   chassis.pid_turn_constants_set(3, 0.003, 20);
   chassis.pid_swing_constants_set(5, 0, 30);
 
@@ -126,65 +126,126 @@ void prog_skills(){
   chassis.pid_swing_set(ez::RIGHT_SWING, 28, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-1_in, 90);
+  chassis.pid_drive_set(-2.5_in, 90);
   chassis.pid_wait();
 
   intake.move(0);
 
-  pros::delay(2000);
+  chassis.drive_brake_set(pros::E_MOTOR_BRAKE_BRAKE);
+
+  chassis.left_motors[0].brake();
+  chassis.left_motors[1].brake();
+  chassis.left_motors[2].brake();
+
+  chassis.right_motors[0].brake();
+  chassis.right_motors[1].brake();
+  chassis.right_motors[2].brake();
+
+  slapper.move(107);
+
+  pros::delay(7000);
+
+  chassis.left_motors[0].brake();
+  chassis.left_motors[1].brake();
+  chassis.left_motors[2].brake();
+
+  chassis.right_motors[0].brake();
+  chassis.right_motors[1].brake();
+  chassis.right_motors[2].brake();
+
+  pros::delay(7000);
+
+  chassis.left_motors[0].brake();
+  chassis.left_motors[1].brake();
+  chassis.left_motors[2].brake();
+
+  chassis.right_motors[0].brake();
+  chassis.right_motors[1].brake();
+  chassis.right_motors[2].brake();
+  slapper.move(0);
+
+  pros::delay(7000);
+
+  chassis.left_motors[0].brake();
+  chassis.left_motors[1].brake();
+  chassis.left_motors[2].brake();
+
+  chassis.right_motors[0].brake();
+  chassis.right_motors[1].brake();
+  chassis.right_motors[2].brake();
+
+  pros::delay(7000);
+
+  chassis.left_motors[0].brake();
+  chassis.left_motors[1].brake();
+  chassis.left_motors[2].brake();
+
+  chassis.right_motors[0].brake();
+  chassis.right_motors[1].brake();
+  chassis.right_motors[2].brake();
+
+  pros::delay(1000);
+  chassis.drive_brake_set(pros::E_MOTOR_BRAKE_HOLD);
   
   chassis.drive_imu_reset(28);
 
-  chassis.pid_drive_set(1_in, 90);
+  chassis.drive_mode_set(ez::DRIVE);
+
+  chassis.pid_swing_set(ez::RIGHT_SWING, 45, 90);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(208, 90);
+  chassis.pid_drive_set(4_in, 110);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-33_in, 110);
-  chassis.pid_wait_until(-22_in);
-  wings.set(true);
+  chassis.pid_turn_set(225, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-34_in, 110);
   chassis.pid_wait();
 
   chassis.pid_turn_set(270, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-68_in, 110);
+  wings.set(true);
+
+  chassis.pid_drive_set(-69_in, 110);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(8_in, 90);
+  chassis.pid_drive_set(11_in, 90);
   chassis.pid_wait_until(4_in);
   wings.set(false);
   chassis.pid_wait();
 
+  chassis.pid_turn_set(360, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-16_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(270, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-35_in, 110);
+  chassis.pid_wait();
+
+
+
   chassis.pid_turn_set(180, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-18_in, 110);
+  chassis.pid_drive_set(-70_in, 110);
   chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::LEFT_SWING, 270, 90);
+  chassis.pid_turn_set(140, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-6_in, 90);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(180, 90);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-66_in, 110);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(135, 90);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-10_in, 110);
+  chassis.pid_drive_set(-33_in, 110);
   chassis.pid_wait();
 
   chassis.pid_turn_set(90, 90);
   chassis.pid_wait();
   
-  chassis.pid_drive_set(-10_in, 110);
+  chassis.pid_drive_set(-7.5_in, 110);
   chassis.pid_wait();
 
   chassis.pid_drive_set(6_in, 110);
@@ -196,26 +257,29 @@ void prog_skills(){
   chassis.pid_turn_set(0, 90);
   chassis.pid_wait();
 
-  wings.set(true);
-
-  chassis.pid_swing_set(ez::RIGHT_SWING, 160, 80);
+  chassis.pid_drive_set(-22_in, 110);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(6_in, 110);
+  chassis.pid_swing_set(ez::RIGHT_SWING, 160, 80, 10);
+  chassis.pid_wait_until(110.0);
+  wings.set(true);
   chassis.pid_wait();
 
   chassis.pid_drive_set(-6_in, 110);
   chassis.pid_wait();
 
+  chassis.pid_drive_set(6_in, 110);
+  chassis.pid_wait();
+
   wings.set(false);
 
-  chassis.pid_drive_set(50_in, 110);
+  chassis.pid_drive_set(22_in, 110);
   chassis.pid_wait();
 
   chassis.pid_turn_set(90, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-48_in, 110);
+  chassis.pid_drive_set(-16_in, 110);
   chassis.pid_wait();
 
   wings.set(true);
@@ -223,15 +287,21 @@ void prog_skills(){
   chassis.pid_swing_set(ez::RIGHT_SWING, 180, 80);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(6_in, 110);
+  chassis.pid_drive_set(-23_in, 110);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-6_in, 110);
+  chassis.pid_drive_set(12_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(20_in, 110);
   chassis.pid_wait();
 
   wings.set(false);
 
-  chassis.pid_drive_set(36_in, 110);
+  chassis.pid_turn_set(270, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-36_in, 110);
   chassis.pid_wait();
 
   chassis.pid_turn_set(135, 90);
