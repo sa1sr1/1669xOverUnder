@@ -3,5 +3,6 @@
 #include "pros/misc.h"
 
 pros::Motor intake(4);
-ez::Piston wings (2);
+ez::Piston wingLeft (4);
+ez::Piston wingRight (2);
 pros::Motor slapper(18);

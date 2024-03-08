@@ -5,8 +5,10 @@
 
 void activate_wings(){
     if (master.get_digital_new_press(DIGITAL_R1)){ 
-        wings.set(!wings.get());
+        wingLeft.set(!wingLeft.get());
+        wingRight.set(!wingRight.get());
     }
 
-    if (master.get_digital_new_press(DIGITAL_A)) wings.set(!wings.get());
+    if (master.get_digital_new_press(DIGITAL_A)) wingLeft.set(!wingLeft.get());
+    if (master.get_digital_new_press(DIGITAL_Y)) wingRight.set(!wingRight.get());
 }

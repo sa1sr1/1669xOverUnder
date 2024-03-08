@@ -10,6 +10,8 @@ void far_side();
 void near_side();
 void prog_skills();
 void skills_macro();
+void test_prog();
+void brake(int time);
 void keep_turn(int turn);
 void drive_and_turn();
 void wait_until_change_speed();

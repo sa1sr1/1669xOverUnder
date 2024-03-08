@@ -63,6 +63,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
+    Auton("Prog Skills test", test_prog),
     Auton("Prog Skills", prog_skills),
     Auton("Drive forward and score triball", drive_and_turn),
     Auton("Swing Example\n\nSwing, drive, swing.", swing_example),

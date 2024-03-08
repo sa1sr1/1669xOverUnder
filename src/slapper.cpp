@@ -5,7 +5,7 @@
 #include "pros/llemu.hpp"
 
 bool slapperFire = false;
-int power = 97;
+int power = 107;
 void slapper_toggle(){
 if(master.get_digital_new_press(DIGITAL_UP)) power = power + 10;
 if(master.get_digital_new_press(DIGITAL_DOWN)) power = power - 10;
