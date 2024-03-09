@@ -585,51 +585,110 @@ void far_side() {
   // The second parameter is max speed the robot will drive at
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater then the slew distance + a few inches
-  wingLeft.set(true);
   wingRight.set(true);
 
-  chassis.pid_drive_set(-20_in, DRIVE_SPEED);
-  chassis.pid_wait();
-  
-
-  chassis.pid_turn_set(-45, TURN_SPEED);
+  chassis.pid_drive_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
   wingRight.set(false);
-  wingLeft.set(false);
 
-  chassis.pid_drive_set(-15_in, 110); 
-  chassis.pid_wait();
-  
-  chassis.pid_turn_set(-45, TURN_SPEED);
-  chassis.pid_wait();
+chassis.pid_drive_set(-3_in, DRIVE_SPEED);
+chassis.pid_wait();
 
-  chassis.pid_drive_set(12_in, DRIVE_SPEED);
+  chassis.pid_swing_set(ez::LEFT_SWING, -45, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-15_in, 110);
+  chassis.pid_drive_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(-45, TURN_SPEED);
+  chassis.pid_swing_set(ez::LEFT_SWING, 75, 90, 20);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(15_in, 90);
+  intake.move(127);
+
+  chassis.pid_drive_set(37_in, 110);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(0, TURN_SPEED);
+  chassis.pid_turn_set(175, 90);
   chassis.pid_wait();
 
+  chassis.pid_drive_set(12_in, 110);
+  chassis.pid_wait();
+
+  intake.move(-127);
+  pros::delay(500);
+
+  chassis.pid_turn_set(90, 90);
+  chassis.pid_wait();
+
+  intake.move(127);
+
+  chassis.pid_drive_set(20_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(45, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-30_in, 110);
+  chassis.pid_wait();
 
   chassis.pid_drive_set(18_in, 110);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(45, TURN_SPEED);
+  chassis.pid_turn_set(225, 90);
   chassis.pid_wait();
 
-  intake.move(0);
-
-  chassis.pid_drive_set(31_in, 90);
+  chassis.pid_drive_set(20_in, 110);
   chassis.pid_wait();
+
+
+
+  //
+  // wingLeft.set(true);
+  // wingRight.set(true);
+  //
+  // chassis.pid_drive_set(-20_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  // 
+  //
+  // chassis.pid_turn_set(-45, TURN_SPEED);
+  // chassis.pid_wait();
+  //
+  // wingRight.set(false);
+  // wingLeft.set(false);
+  //
+  // chassis.pid_drive_set(-15_in, 110); 
+  // chassis.pid_wait();
+  // 
+  // chassis.pid_turn_set(-45, TURN_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(12_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(-15_in, 110);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(-45, TURN_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(15_in, 90);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(0, TURN_SPEED);
+  // chassis.pid_wait();
+  //
+  //
+  // chassis.pid_drive_set(18_in, 110);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(45, TURN_SPEED);
+  // chassis.pid_wait();
+  //
+  // intake.move(0);
+  //
+  // chassis.pid_drive_set(31_in, 90);
+  // chassis.pid_wait();
 
   // chassis.pid_drive_set(48, DRIVE_SPEED);
   // chassis.pid_wait();
