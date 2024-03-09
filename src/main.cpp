@@ -63,12 +63,11 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    Auton("Prog Skills test", test_prog),
     Auton("Prog Skills", prog_skills),
-    Auton("Drive forward and score triball", drive_and_turn),
-    Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
     Auton("Near side auton\n\nscore 2 triballs, touch elevation", near_side),
     Auton("Far side auton\n\nscore alliance matchload no elevation touch", far_side),
+    Auton("Drive forward and score triball", drive_and_turn),
+    Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
     Auton("Drive and Turn\n\nSlow down during drive.", wait_until_change_speed),
     Auton("Combine all 3 movements", combining_movements),
     Auton("Interference\n\nAfter driving forward, robot performs differently if interfered or not.", interfered_example),
