@@ -690,16 +690,10 @@ void near_side() {
   /* chassis.pid_drive_set(-30, DRIVE_SPEED); */
   /* chassis.pid_wait(); */
 
-  chassis.pid_drive_set(-20_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(-45, TURN_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-15_in, DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(-45, TURN_SPEED);
+  chassis.pid_turn_set(45, TURN_SPEED);
   chassis.pid_wait();
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);
@@ -714,7 +708,7 @@ void near_side() {
   chassis.pid_drive_set(12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(45, TURN_SPEED);
+  chassis.pid_turn_set(-45, TURN_SPEED);
   chassis.pid_wait();
 
   chassis.pid_drive_set(15_in, DRIVE_SPEED);
@@ -725,19 +719,9 @@ void near_side() {
   chassis.pid_drive_set(-15_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(-45, TURN_SPEED);
-  chassis.pid_wait();
+  wingRight.set(false);
 
-  chassis.pid_drive_set(-12_in, DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(6_in, DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-6_in, DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(95, TURN_SPEED);
+  chassis.pid_turn_set(-50, TURN_SPEED);
   chassis.pid_wait();
 
   chassis.pid_drive_set(30_in, DRIVE_SPEED);
