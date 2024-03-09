@@ -4,24 +4,25 @@
       "name": "PROS Project",
       "includePath": [
         "${workspaceFolder}/**",
-        "/Users/sawan/Documents/VexProjects/OverUnderSkills/include"
+        "/Users/sawan/Documents/VexProjects/OverUnderSkills/include",
+        "/Users/oliverma/Desktop/1669xOverUnder/include"
       ],
       "defines": [
         "_DEBUG",
         "UNICODE",
         "_UNICODE"
       ],
-      "compilerPath": "/Users/sawan/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/arm-none-eabi-g++",
+      "compilerPath": "/Users/oliverma/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/arm-none-eabi-g++",
       "cStandard": "gnu11",
       "cppStandard": "gnu++20",
       "intelliSenseMode": "gcc-arm",
-      "compileCommands": "/Users/sawan/Documents/VexProjects/OverUnderSkills/compile_commands.json",
+      "compileCommands": "/Users/oliverma/Desktop/1669xOverUnder/compile_commands.json",
       "macFrameworkPath": [
         "/System/Library/Frameworks"
       ],
       "browse": {
         "path": [
-          "/Users/sawan/Documents/VexProjects/OverUnderSkills"
+          "/Users/oliverma/Desktop/1669xOverUnder"
         ],
         "limitSymbolsToIncludedHeaders": true,
         "databaseFilename": ""

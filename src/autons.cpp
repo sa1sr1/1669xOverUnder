@@ -650,17 +650,17 @@ void near_side() {
   // The first parameter is target degrees
   // The second parameter is max speed the robot will drive at
   
-  chassis.pid_drive_set(-40_in, DRIVE_SPEED);
-  chassis.pid_wait();
+  // chassis.pid_drive_set(-40_in, DRIVE_SPEED);
+  // chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::RIGHT_SWING, 90, TURN_SPEED);
-  chassis.pid_wait();
+  // chassis.pid_swing_set(ez::RIGHT_SWING, 90, TURN_SPEED);
+  // chassis.pid_wait();
 
-  wingLeft.set(true);
-  wingRight.set(true);
+  // wingLeft.set(true);
+  // wingRight.set(true);
 
-  chassis.pid_drive_set(-20_in, DRIVE_SPEED);
-  chassis.pid_wait();
+  // chassis.pid_drive_set(-20_in, DRIVE_SPEED);
+  // chassis.pid_wait();
 
   
   /* chassis.pid_turn_set(90, TURN_SPEED); */
@@ -690,6 +690,58 @@ void near_side() {
   /* chassis.pid_drive_set(-30, DRIVE_SPEED); */
   /* chassis.pid_wait(); */
 
+  chassis.pid_drive_set(-20_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-45, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-15_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-45, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-12_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(6_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-6_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(12_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(45, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(15_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  wingRight.set(true);
+  
+  chassis.pid_drive_set(-15_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-45, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-12_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(6_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-6_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(95, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(30_in, DRIVE_SPEED);
+  chassis.pid_wait();
 }
 ///
 // Combining Turn + Drive
