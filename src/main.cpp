@@ -149,6 +149,7 @@ void autonomous() {
 void opcontrol() {
   // This is preference to what you like to drive on
   chassis.drive_brake_set(MOTOR_BRAKE_COAST);
+
   
   while (true) {
     
@@ -183,8 +184,8 @@ void opcontrol() {
     // Put more user control code here!
     // . . .
     activate_wings();
-    move_intake();
     slapper_toggle();
+    move_intake();
 
     pros::delay(ez::util::DELAY_TIME); // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

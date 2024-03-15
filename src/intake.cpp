@@ -2,7 +2,7 @@
 #include "globals.hpp"
 #include "pros/misc.h"
 
-bool intakeToggle = false;
+bool intakeToggle = true;
 int direction = 1;
 
 void move_intake(){

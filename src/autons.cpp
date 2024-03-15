@@ -103,13 +103,13 @@ void skills_macro(){
   chassis.pid_drive_set(-3_in, 90);
   chassis.pid_wait();
 
-  intake.move(0);
 
   chassis.drive_brake_set(pros::E_MOTOR_BRAKE_BRAKE);
 
   brake(0);
 
   slapper.move(105);
+  intake.move(0);
   brake(500);
   chassis.drive_imu_reset(25);
   brake(500);
@@ -273,26 +273,34 @@ void prog_skills(){
   chassis.pid_turn_set(180, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-67_in, 110);
+  chassis.pid_drive_set(-82_in, 110);
   chassis.pid_wait();
 
-  // chassis.pid_turn_set(215, 90);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_drive_set(-33_in, 127);
-  // chassis.pid_wait();
-  //
-  //
-  // chassis.pid_drive_set(17_in, 110);
-  // chassis.pid_wait();
-  //
-  // chassis.pid_turn_set(360, 90);
-  // chassis.pid_wait();
+  chassis.pid_drive_exit_condition_set(225_ms, 0.75_in, 375_ms, 2.25_in, 562_ms, 562_ms);
 
-
-
-  chassis.pid_swing_set(ez::RIGHT_SWING, 360, 90, 17);
+  chassis.pid_turn_set(225, 90);
   chassis.pid_wait();
+  //
+  chassis.pid_drive_set(-24_in, 110);
+  chassis.pid_wait();
+  
+  chassis.pid_turn_set(270, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-12_in, 127);
+  chassis.pid_wait();
+  //
+  chassis.pid_drive_set(7_in, 110);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(360, 90);
+  chassis.pid_wait();
+  //
+  chassis.pid_drive_set(-30_in, 110);
+  chassis.pid_wait();
+
+  // chassis.pid_swing_set(ez::RIGHT_SWING, 360, 90, 17);
+  // chassis.pid_wait();
 
   chassis.pid_swing_set(ez::LEFT_SWING, 192, 90, 20);
   chassis.pid_wait();
@@ -336,7 +344,7 @@ void prog_skills(){
   chassis.pid_drive_set(25_in, 110);
   chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::LEFT_SWING, -120, 90, 20);
+  chassis.pid_swing_set(ez::LEFT_SWING, -120, 90, 13);
   chassis.pid_wait();
 
 
@@ -585,6 +593,8 @@ void far_side() {
   // The second parameter is max speed the robot will drive at
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater then the slew distance + a few inches
+  intake.move(127);
+
   wingRight.set(true);
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);
@@ -592,54 +602,91 @@ void far_side() {
 
   wingRight.set(false);
 
+
 chassis.pid_drive_set(-3_in, DRIVE_SPEED);
 chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::LEFT_SWING, -45, 90);
+  chassis.pid_swing_set(ez::LEFT_SWING, -45, 90, 15);
   chassis.pid_wait();
+
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::LEFT_SWING, 75, 90, 20);
+  chassis.pid_swing_set(ez::LEFT_SWING, 74, 90, 20);
   chassis.pid_wait();
 
   intake.move(127);
 
-  chassis.pid_drive_set(37_in, 110);
+chassis.pid_drive_set(38.5_in, DRIVE_SPEED);
+chassis.pid_wait();
+
+chassis.pid_turn_set(-16, 90);
+chassis.pid_wait();
+
+  wingLeft.set(true);
+
+  chassis.pid_swing_set(ez::RIGHT_SWING, 45, 90, 10);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(175, 90);
+chassis.pid_drive_set(-24_in, DRIVE_SPEED);
+chassis.pid_wait();
+
+chassis.pid_drive_set(12_in, DRIVE_SPEED);
+chassis.pid_wait();
+
+chassis.pid_turn_set(-135, 90);
+chassis.pid_wait();
+
+chassis.pid_drive_set(16_in, DRIVE_SPEED);
+chassis.pid_wait();
+
+
+
+  chassis.pid_turn_set(205, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(12_in, 110);
-  chassis.pid_wait();
+chassis.pid_drive_set(30_in, DRIVE_SPEED);
+chassis.pid_wait();
 
-  intake.move(-127);
-  pros::delay(500);
 
-  chassis.pid_turn_set(90, 90);
-  chassis.pid_wait();
 
-  intake.move(127);
-
-  chassis.pid_drive_set(20_in, 110);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(45, 90);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-30_in, 110);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(18_in, 110);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(225, 90);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(20_in, 110);
-  chassis.pid_wait();
+  // intake.move(127);
+  //
+  // chassis.pid_drive_set(37_in, 110);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(175, 90);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(18_in, 110);
+  // chassis.pid_wait();
+  //
+  // intake.move(-127);
+  // pros::delay(500);
+  //
+  // chassis.pid_turn_set(85, 90);
+  // chassis.pid_wait();
+  //
+  // intake.move(127);
+  //
+  // chassis.pid_drive_set(20_in, 110);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(45, 90);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(-30_in, 110);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(18_in, 110);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(225, 90);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(20_in, 110);
+  // chassis.pid_wait();
 
 
 
@@ -706,21 +753,62 @@ chassis.pid_wait();
 // Turn Example
 ///
 void near_side() {
-  // The first parameter is target degrees
-  // The second parameter is max speed the robot will drive at
-  
-  chassis.pid_drive_set(-40_in, DRIVE_SPEED);
-  chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::RIGHT_SWING, 90, TURN_SPEED);
+  chassis.pid_drive_set(-40_in, DRIVE_SPEED);
   chassis.pid_wait();
 
   wingLeft.set(true);
   wingRight.set(true);
 
+  chassis.pid_swing_set(ez::RIGHT_SWING, 90, TURN_SPEED);
+  chassis.pid_wait();
+
   chassis.pid_drive_set(-20_in, DRIVE_SPEED);
   chassis.pid_wait();
 
+  wingLeft.set(false);
+  wingRight.set(false);
+  // chassis.pid_drive_set(-14_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(45, TURN_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(-18_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(6_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(-6_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(16.5_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(0, TURN_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(15_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // wingLeft.set(true);
+  // 
+  // chassis.pid_drive_set(-15_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // wingLeft.set(false);
+  //
+  // chassis.pid_drive_set(19_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_turn_set(-45, TURN_SPEED);
+  // chassis.pid_wait();
+  //
+  // chassis.pid_drive_set(32_in, DRIVE_SPEED);
+  // chassis.pid_wait();
+  // The first parameter is target degrees
+  // The second parameter is max speed the robot will drive at
   
   /* chassis.pid_turn_set(90, TURN_SPEED); */
   /* chassis.pid_wait(); */
