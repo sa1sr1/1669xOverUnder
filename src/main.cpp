@@ -1,8 +1,9 @@
 #include "main.h"
 #include "autons.hpp"
+#include "hang.hpp"
 #include "subSystems.hpp"
 
-std::vector<int> leftMotorPorts = {-13, -12, -11};
+std::vector<int> leftMotorPorts = {-14, -12, -13};
 std::vector<int> rightMotorPorts = {17, 19, 20};
 #define imuPort 1
 /////
@@ -63,7 +64,6 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    Auton("Prog Skills", prog_skills),
     Auton("Near side auton\n\nscore 2 triballs, touch elevation", near_side),
     Auton("Far side auton\n\nscore alliance matchload no elevation touch", far_side),
     Auton("Drive forward and score triball", drive_and_turn),
@@ -160,6 +160,7 @@ void opcontrol() {
     //   //  When enabled: 
     //   //  * use A and Y to increment / decrement the constants
     //   //  * use the arrow keys to navigate the constants
+      /*
          if (master.get_digital_new_press(DIGITAL_X)){
            chassis.pid_tuner_toggle();
          }
@@ -168,6 +169,7 @@ void opcontrol() {
           autonomous();
     //
        chassis.pid_tuner_iterate(); // Allow PID Tuner to iterate
+    */
     //   
     //   pros::lcd::set_text(0, to_string(angularController.kP));
     //   pros::lcd::set_text(1, to_string(angularController.kD));
@@ -184,7 +186,8 @@ void opcontrol() {
     // Put more user control code here!
     // . . .
     activate_wings();
-    slapper_toggle();
+    // slapper_toggle();
+    move_hang();
     move_intake();
 
     pros::delay(ez::util::DELAY_TIME); // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
