@@ -4,7 +4,7 @@
 
 pros::Motor intake(4);
 ez::Piston wings('C');
-ez::Piston ratchet (1);
+ez::Piston ratchet ('G');
 
 pros::Motor slapper(18);
-pros::Motor hang(11);
+pros::Motor hang(10);
