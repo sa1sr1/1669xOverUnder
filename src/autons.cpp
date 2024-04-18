@@ -106,12 +106,12 @@ void far_side() {
   // for slew, only enable it when the drive distance is greater then the slew distance + a few inches
   intake.move(127);
 
-  wingRight.set(true);
+  // wingRight.set(true);
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  wingRight.set(false);
+  // wingRight.set(false);
 
 
 chassis.pid_drive_set(-3_in, DRIVE_SPEED);
@@ -135,7 +135,7 @@ chassis.pid_wait();
 chassis.pid_turn_set(-16, 90);
 chassis.pid_wait();
 
-  wingLeft.set(true);
+  // wingLeft.set(true);
 
   chassis.pid_swing_set(ez::RIGHT_SWING, 45, 90, 10);
   chassis.pid_wait();
@@ -174,8 +174,8 @@ void near_side() {
   chassis.pid_drive_set(-40_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  wingLeft.set(true);
-  wingRight.set(true);
+  // wingLeft.set(true);
+  // wingRight.set(true);
 
   chassis.pid_swing_set(ez::RIGHT_SWING, 90, TURN_SPEED);
   chassis.pid_wait();
@@ -183,8 +183,8 @@ void near_side() {
   chassis.pid_drive_set(-20_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  wingLeft.set(false);
-  wingRight.set(false);
+  // wingLeft.set(false);
+  // wingRight.set(false);
 
 }
 ///

@@ -3,8 +3,8 @@
 #include "hang.hpp"
 #include "subSystems.hpp"
 
-std::vector<int> leftMotorPorts = {-14, -12, -13};
-std::vector<int> rightMotorPorts = {17, 19, 20};
+std::vector<int> rightMotorPorts = {14, 12, 13};
+std::vector<int> leftMotorPorts = {-17, -19, -20};
 #define imuPort 1
 /////
 // For installation, upgrading, documentations and tutorials, check out our website!
@@ -160,7 +160,6 @@ void opcontrol() {
     //   //  When enabled: 
     //   //  * use A and Y to increment / decrement the constants
     //   //  * use the arrow keys to navigate the constants
-      /*
          if (master.get_digital_new_press(DIGITAL_X)){
            chassis.pid_tuner_toggle();
          }
@@ -169,7 +168,6 @@ void opcontrol() {
           autonomous();
     //
        chassis.pid_tuner_iterate(); // Allow PID Tuner to iterate
-    */
     //   
     //   pros::lcd::set_text(0, to_string(angularController.kP));
     //   pros::lcd::set_text(1, to_string(angularController.kD));

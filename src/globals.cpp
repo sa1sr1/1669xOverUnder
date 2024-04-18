@@ -7,4 +7,4 @@ ez::Piston wings('C');
 ez::Piston ratchet ('G');
 
 pros::Motor slapper(18);
-pros::Motor hang(10);
+pros::Motor hang(6);
