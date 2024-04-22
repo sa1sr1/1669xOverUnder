@@ -5,7 +5,7 @@
 
 std::vector<int> rightMotorPorts = {14, 12, 13};
 std::vector<int> leftMotorPorts = {-17, -19, -20};
-#define imuPort 1
+#define imuPort 3
 /////
 // For installation, upgrading, documentations and tutorials, check out our website!
 // https://ez-robotics.github.io/EZ-Template/
@@ -64,8 +64,8 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    Auton("Near side auton\n\nscore 2 triballs, touch elevation", near_side),
     Auton("Far side auton\n\nscore alliance matchload no elevation touch", far_side),
+    Auton("Near side auton\n\nscore 2 triballs, touch elevation", near_side),
     Auton("Drive forward and score triball", drive_and_turn),
     Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
     Auton("Drive and Turn\n\nSlow down during drive.", wait_until_change_speed),
@@ -165,7 +165,7 @@ void opcontrol() {
          }
     //   // Trigger the selected autonomous routine
        if (master.get_digital_new_press(DIGITAL_B)) 
-          autonomous();
+           autonomous();
     //
        chassis.pid_tuner_iterate(); // Allow PID Tuner to iterate
     //   

@@ -2,7 +2,7 @@
 #include "pros/adi.hpp"
 #include "pros/misc.h"
 
-pros::Motor intake(4);
+pros::Motor intake(1);
 ez::Piston wings('C');
 ez::Piston ratchet ('G');
 

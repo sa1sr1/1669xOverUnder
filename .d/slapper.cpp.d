@@ -83,11 +83,7 @@ bin/slapper.cpp.o: src/slapper.cpp include/slapper.hpp include/main.h \
  include/okapi/api/units/QAngle.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/units/QLength.hpp include/okapi/api/units/QTime.hpp \
  include/EZ-Template/piston.hpp include/EZ-Template/sdcard.hpp \
- include/autons.hpp include/lemlib/chassis/chassis.hpp \
- include/pros/motors.hpp include/pros/imu.hpp include/lemlib/asset.hpp \
- include/lemlib/chassis/trackingWheel.hpp include/pros/adi.hpp \
- include/pros/rotation.hpp include/lemlib/pose.hpp include/lemlib/pid.hpp \
- include/lemlib/exitcondition.hpp include/globals.hpp include/main.h \
+ include/autons.hpp include/globals.hpp include/main.h \
  include/pros/llemu.hpp
 include/slapper.hpp:
 include/main.h:
@@ -258,16 +254,6 @@ include/okapi/api/units/QTime.hpp:
 include/EZ-Template/piston.hpp:
 include/EZ-Template/sdcard.hpp:
 include/autons.hpp:
-include/lemlib/chassis/chassis.hpp:
-include/pros/motors.hpp:
-include/pros/imu.hpp:
-include/lemlib/asset.hpp:
-include/lemlib/chassis/trackingWheel.hpp:
-include/pros/adi.hpp:
-include/pros/rotation.hpp:
-include/lemlib/pose.hpp:
-include/lemlib/pid.hpp:
-include/lemlib/exitcondition.hpp:
 include/globals.hpp:
 include/main.h:
 include/pros/llemu.hpp:

@@ -1,10 +1,8 @@
 #pragma once
 
 #include "EZ-Template/drive/drive.hpp"
-#include "lemlib/chassis/chassis.hpp"
 
 extern Drive chassis;
-extern lemlib::Chassis lemChassis;
 
 void far_side();
 void near_side();
