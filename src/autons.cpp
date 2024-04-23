@@ -108,43 +108,41 @@ void far_side() {
   // The second parameter is max speed the robot will drive at
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater then the slew distance + a few inches
+  hang.move(127);
+
   intake.move(127);
 
   wings.set(true);
 
   chassis.pid_drive_set(13_in, DRIVE_SPEED);
+  chassis.pid_wait_until(9);
+  intake.move(-127);
   chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::RIGHT_SWING, -40, 110, 0);
+  hang.move(0);
+
+  chassis.pid_turn_set(-180, 90);
   chassis.pid_wait();
-
-  chassis.pid_turn_set(-90, 90);
-  chassis.pid_wait();
-
-  pros::delay(200);
-
-  chassis.pid_turn_set(-45, 90);
-  chassis.pid_wait();
-
-
-
-  // chassis.pid_turn_set(-60, 90);
-  // chassis.pid_wait();
 
   wings.set(false);
 
+  pros::delay(300);
 
-  intake.move(-127);
+  chassis.pid_drive_set(-9.5_in, DRIVE_SPEED);
+  chassis.pid_wait();
 
-chassis.pid_drive_set(21_in, DRIVE_SPEED);
+  chassis.pid_turn_set(-225, 90);
+  chassis.pid_wait();
+
+chassis.pid_drive_set(-21_in, DRIVE_SPEED);
 chassis.pid_wait();
 
   intake.move(127);
 
-chassis.pid_drive_set(-15_in, DRIVE_SPEED);
+chassis.pid_drive_set(15_in, DRIVE_SPEED);
 chassis.pid_wait();
 
-  chassis.pid_turn_set(-130, 90);
+  chassis.pid_turn_set(-110, 90);
   chassis.pid_wait();
 
   // chassis.pid_swing_set(ez::LEFT_SWING, -45, 90, 15);
@@ -157,28 +155,28 @@ chassis.pid_wait();
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(0, 90);
+  chassis.pid_turn_set(14, 90);
   chassis.pid_wait();
 
   chassis.pid_drive_set(12_in, DRIVE_SPEED);
   chassis.pid_wait_until(10);
-  intake.move(-127);
+  intake.move(-87);
   chassis.pid_wait();
 
   intake.move(127);
 
-  chassis.pid_turn_set(-100, 90);
+  chassis.pid_turn_set(-105, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(20_in, DRIVE_SPEED);
+  chassis.pid_drive_set(29_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(45, 90);
+  chassis.pid_turn_set(45, 60);
   chassis.pid_wait();
 
   wings.set(true);
 
-  chassis.pid_drive_set(32_in, DRIVE_SPEED);
+  chassis.pid_drive_set(35_in, DRIVE_SPEED);
   chassis.pid_wait_until(24);
   intake.move(-127);
   chassis.pid_wait();
