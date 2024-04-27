@@ -108,7 +108,7 @@ void far_side() {
   // The second parameter is max speed the robot will drive at
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater then the slew distance + a few inches
-  hang.move(127);
+  hang.move(-127);
 
   intake.move(127);
 
@@ -116,38 +116,44 @@ void far_side() {
 
   chassis.pid_drive_set(13_in, DRIVE_SPEED);
   chassis.pid_wait_until(9);
+  hang.move(127);
   intake.move(-127);
   chassis.pid_wait();
 
   hang.move(0);
 
-  chassis.pid_turn_set(-180, 90);
+  chassis.pid_turn_set(-180, 100);
   chassis.pid_wait();
 
   wings.set(false);
 
-  pros::delay(300);
-
-  chassis.pid_drive_set(-9.5_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-10_in, DRIVE_SPEED);
   chassis.pid_wait();
 
   chassis.pid_turn_set(-225, 90);
   chassis.pid_wait();
 
+  chassis.pid_drive_exit_condition_set(300_ms, 1_in, 500_ms, 3_in, 150_ms, 750_ms);
+
 chassis.pid_drive_set(-21_in, DRIVE_SPEED);
 chassis.pid_wait();
+
+  chassis.pid_drive_exit_condition_set(300_ms, 1_in, 500_ms, 3_in, 750_ms, 750_ms);
 
   intake.move(127);
 
 chassis.pid_drive_set(15_in, DRIVE_SPEED);
 chassis.pid_wait();
 
-  chassis.pid_turn_set(-110, 90);
+  chassis.pid_turn_set(-115, 90);
   chassis.pid_wait();
+
+
 
   // chassis.pid_swing_set(ez::LEFT_SWING, -45, 90, 15);
   // chassis.pid_wait();
-
+  chassis.pid_drive_exit_condition_set(150_ms, 0.6_in, 300_ms, 2_in, 750_ms, 750_ms);
+  chassis.pid_turn_exit_condition_set(150_ms, 1.5_deg, 250_ms, 3.5_deg, 750_ms, 750_ms);
 
   chassis.pid_drive_set(51_in, DRIVE_SPEED);
   chassis.pid_wait();
@@ -158,9 +164,9 @@ chassis.pid_wait();
   chassis.pid_turn_set(14, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(12_in, DRIVE_SPEED);
-  chassis.pid_wait_until(10);
-  intake.move(-87);
+  chassis.pid_drive_set(9_in, DRIVE_SPEED);
+  chassis.pid_wait_until(6);
+  intake.move(-97);
   chassis.pid_wait();
 
   intake.move(127);
@@ -168,13 +174,15 @@ chassis.pid_wait();
   chassis.pid_turn_set(-105, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(29_in, DRIVE_SPEED);
+  chassis.pid_drive_set(28_in, DRIVE_SPEED);
   chassis.pid_wait();
 
   chassis.pid_turn_set(45, 60);
   chassis.pid_wait();
 
   wings.set(true);
+
+  chassis.pid_drive_exit_condition_set(150_ms, 0.5_in, 375_ms, 1.5_in, 250_ms, 750_ms);
 
   chassis.pid_drive_set(35_in, DRIVE_SPEED);
   chassis.pid_wait_until(24);
@@ -200,9 +208,10 @@ void near_side() {
   hang.move(-127);
 
   chassis.pid_drive_set(-24.5_in, DRIVE_SPEED);
+  chassis.pid_wait_until(-6);
+  hang.move(0);
   chassis.pid_wait();
 
-  hang.move(0);
 
   chassis.pid_turn_set(45, TURN_SPEED);
   chassis.pid_wait();
@@ -210,7 +219,7 @@ void near_side() {
   chassis.pid_drive_set(-18.5_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(15.5_in, DRIVE_SPEED);
+  chassis.pid_drive_set(13.5_in, DRIVE_SPEED);
   chassis.pid_wait();
 
   // chassis.pid_turn_set(225, TURN_SPEED);
@@ -225,15 +234,15 @@ void near_side() {
 
   wings.set(true);
 
-  chassis.pid_drive_set(14.5_in, DRIVE_SPEED);
+  chassis.pid_drive_set(13_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::RIGHT_SWING, -45, 110, 0);
+  chassis.pid_swing_set(ez::RIGHT_SWING, -45, 110, 10);
   chassis.pid_wait();
 
   wings.set(false);
 
-  chassis.pid_drive_set(36.5_in, DRIVE_SPEED);
+  chassis.pid_drive_set(33.5_in, DRIVE_SPEED);
   chassis.pid_wait();
 
 }

@@ -165,7 +165,7 @@ void opcontrol() {
          }
     //   // Trigger the selected autonomous routine
        if (master.get_digital_new_press(DIGITAL_B)) 
-           autonomous();
+           // autonomous();
     //
        chassis.pid_tuner_iterate(); // Allow PID Tuner to iterate
     //   
